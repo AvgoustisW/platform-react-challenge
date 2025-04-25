@@ -13,14 +13,15 @@ Thank you for reviewing the challenge. I made some choices that slightly differe
 - `pages` contains all the main pages. They are not the smallest & cut in many different pieces. All useEffects and handlers are in there.
 - `.env` is not .gitignored (insecure). I took this decisions so you don't have to set it up on your own, feel free to use my api key. You can choose a different user by changing `VITE_CAT_SUB_ID`
 - Cats state is managed by Tanstack Query. I was curious about the results myself.
+- Added Virtualization with Tanstack-Virtual for better performance in big cat grids.
 
 # What can improve
 
 I opted to manage state directly with TanStack Query's optimistic updates instead of using context or libraries like Zustand with local storage peristance (also helps for initial favorite state). I wanted to see how it would work out as I have never opted to use Tanstack-Query like this. While this reduced code significantly, it complicated the user experience. Cat favorite states are stored in the query cache, which works well for normal usage but creates race conditions when rapidly toggling favorites. Since we don't store temporary favorite IDs in local state between API calls, rapid interactions can produce unexpected results. This limitation could be addressed with additional state management or fixing up the race conditioning in another way but I deprioritized it due to time constraints.
 
-## Technologies used
+## Main Technologies used
 
-Typescript, React-Router, Tanstack-Query, Tailwind + Tailwind-Merge + ShadcnUI Components
+Typescript, React-Router, Tanstack-Query, Tanstack-Virtual, Tailwind + ShadcnUI Components
 
 # Outro
 
