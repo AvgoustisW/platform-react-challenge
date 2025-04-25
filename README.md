@@ -19,6 +19,15 @@ Thank you for reviewing the challenge. I made some choices that slightly differe
 
 I opted to manage state directly with TanStack Query's optimistic updates instead of using context or libraries like Zustand with local storage peristance (also helps for initial favorite state). I wanted to see how it would work out as I have never opted to use Tanstack-Query like this. While this reduced code significantly, it complicated the user experience. Cat favorite states are stored in the query cache, which works well for normal usage but creates race conditions when rapidly toggling favorites. Since we don't store temporary favorite IDs in local state between API calls, rapid interactions can produce unexpected results. This limitation could be addressed with additional state management or fixing up the race conditioning in another way but I deprioritized it due to time constraints.
 
+Also:
+
+- Commit history.
+- I have commited the crime of not memoizing many values with useMemo and useCallback.
+- Better responsive design.
+- Better design in general.
+- More componentized code.
+- ... there's always something to improve.
+
 ## Main Technologies used
 
 Typescript, React-Router, Tanstack-Query, Tanstack-Virtual, Tailwind + ShadcnUI Components
