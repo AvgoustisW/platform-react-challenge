@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { useSearchParams } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { Heart } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import CatDetailsModal from "@/components/Cat/CatDetailsModal";
@@ -13,7 +13,7 @@ import CatGrid from "@/components/Cat/CatGrid";
 const Favorites = () => {
 	const [searchParams, setSearchParams] = useSearchParams();
 	const [selectedCat, setSelectedCat] = useState<CatImage | undefined>(undefined);
-
+	const navigate = useNavigate();
 	const catIdFromUrl = searchParams.get("catId");
 
 	const { favorites, isLoading, error, removeFavorite } = useFavorites();
@@ -70,7 +70,7 @@ const Favorites = () => {
 				<div className="text-center py-12 border-2 border-dashed border-muted rounded-lg">
 					<Heart className="mx-auto h-12 w-12 text-muted" />
 					<p className="mt-4 text-xl text-muted-foreground">You don't have any favorite cats yet.</p>
-					<Button className="mt-6" onClick={() => (window.location.href = "/")}>
+					<Button className="mt-6" onClick={() => navigate("/")}>
 						Find cats to favorite
 					</Button>
 				</div>
