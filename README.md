@@ -2,16 +2,16 @@
 
 Thank you for reviewing the challenge. I made some choices that slightly differentiated from the instructions such as:
 
-- Ability to add/remove favorites in cat cards as well as the modal.
-- Breed modal view becomes its own seperate page `/breeds/:breedId`.
-- Other small stuff + routing decisions.
+- Additional functionality toadd/remove favorites outside the modal.
+- Specific breed view becomes its own seperate page `/breeds/:breedId`.
+- Other minor things + routing decisions.
 
 # Quick Explanation
 
 - `components/ui` folder contains all the base components used in the project. (They are all [ShadcnUI](https://ui.shadcn.com/) components).
-- `hooks/useFavorites.tsx` contains the custom hook for managing favorites.
-- `pages` contains all the main pages. They are not the smallest & cut in many different pieces. All useEffects and handlers are in there.
-- `.env` is not .gitignored (insecure). I took this decisions so you don't have to set it up on your own, feel free to use my api key. You can choose a different user by changing `VITE_CAT_SUB_ID`
+- `hooks/useFavorites.tsx` contains a custom hook for managing favorites. It includes tanstack-query mutations.
+- `pages` contains all the main pages. They are not giga-componentized to keep things simple. All useEffects and handlers are in there.
+- `.env` is not .gitignored (insecure). I took this decision so you don't have to set it up on your own, feel free to use my api key. You can choose a different user by changing `VITE_CAT_SUB_ID`
 - Cats state is managed by Tanstack Query. I was curious about the results myself.
 - Added Virtualization with Tanstack-Virtual for better performance in big cat grids.
 
@@ -36,3 +36,5 @@ Typescript, React-Router, Tanstack-Query, Tanstack-Virtual, Tailwind + ShadcnUI 
 # Outro
 
 Not production ready but I hope it's good enough for what you're looking for. Cheers!
+
+P.S: I have solved a similar challenge like this in the past. Feel free to take a look by surfing [my website](https://www.avgoustis.dev/terminal/) & navigating on the space rockets challenge
