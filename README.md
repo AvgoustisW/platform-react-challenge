@@ -2,7 +2,7 @@
 
 Thank you for reviewing the challenge. I made some choices that slightly differentiated from the instructions such as:
 
-- Additional functionality toadd/remove favorites outside the modal.
+- Additional functionality to add/remove favorites outside the modal.
 - Specific breed view becomes its own seperate page `/breeds/:breedId`.
 - Other minor things + routing decisions.
 
@@ -17,7 +17,7 @@ Thank you for reviewing the challenge. I made some choices that slightly differe
 
 # What can improve
 
-I opted to manage state directly with TanStack Query's optimistic updates instead of using context or libraries like Zustand with local storage peristance (also helps for initial favorite state). I wanted to see how it would work out as I have never opted to use Tanstack-Query like this. While this reduced code significantly, it complicated the user experience. Cat favorite states are stored in the query cache, which works well for normal usage but creates race conditions when rapidly toggling favorites. Since we don't store temporary favorite IDs in local state between API calls, rapid interactions can produce unexpected results. This limitation could be addressed with additional state management or fixing up the race conditioning in another way but I deprioritized it due to time constraints.
+I opted to manage state directly with TanStack Query's optimistic updates instead of using context or libraries like Zustand with local storage persistance (also helps for initial favorite state). I wanted to see how it would work out as I have never opted to use Tanstack-Query like this. While this reduced code significantly, it complicated the user experience. Cat favorite states are stored in the query cache, which works well for normal usage but creates race conditions when rapidly toggling favorites. Since we don't store temporary favorite IDs in local state between API calls, rapid interactions can produce unexpected results. This limitation could be addressed with additional state management or fixing up the race conditioning in another way but I deprioritized it due to time constraints.
 
 Also:
 
