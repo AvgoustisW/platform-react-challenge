@@ -67,7 +67,7 @@ const CatDetailsModal: React.FC<CatDetailsModalProps> = ({
 					<>
 						<DialogHeader className="mb-4">
 							<DialogTitle>{titleText}</DialogTitle>
-							{breed && <DialogDescription>Origin: {breed.origin}</DialogDescription>}
+							<DialogDescription>{breed ? `Origin: ${breed.origin}` : "Details about this cat"}</DialogDescription>
 						</DialogHeader>
 
 						<div className="flex flex-col md:flex-row gap-4">

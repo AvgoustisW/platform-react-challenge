@@ -23,6 +23,7 @@ Also:
 
 - Commit history.
 - I have commited the crime of not memoizing many values with useMemo and useCallback.
+- Better error handling.
 - Better responsive design.
 - Better design in general.
 - More componentized code.

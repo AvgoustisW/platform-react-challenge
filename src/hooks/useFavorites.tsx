@@ -58,6 +58,7 @@ export const useFavorites = () => {
 			return { previousFavorites };
 		},
 		onError: (err, variables, context) => {
+			// Show a toast message here
 			console.error(err, variables, context);
 			if (context?.previousFavorites) {
 				queryClient.setQueryData([CatQueryKeys.FAVORITES], context.previousFavorites);
@@ -90,6 +91,7 @@ export const useFavorites = () => {
 			return { previousFavorites };
 		},
 		onError: (err, variables, context) => {
+			// Show a toast message here
 			console.error(err, variables, context);
 			if (context?.previousFavorites) {
 				queryClient.setQueryData([CatQueryKeys.FAVORITES], context.previousFavorites);

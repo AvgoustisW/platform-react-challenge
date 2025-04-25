@@ -4,7 +4,7 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 import { Heart } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import CatDetailsModal from "@/components/Cat/CatDetailsModal";
-import { fetchCatById, CatImage, CatQueryKeys } from "@/services/cats/catApi";
+import { fetchCatById, CatImage, CatQueryKeys, Favorite } from "@/services/cats/catApi";
 import { useFavorites } from "@/hooks/useFavorites";
 import LoaderGeneral from "@/components/LoaderGeneral";
 import ErrorGeneral from "@/components/ErrorGeneral";
@@ -60,8 +60,10 @@ const Favorites = () => {
 	}
 
 	const favoriteCats = favorites
-		.filter((favorite) => Boolean(favorite.image))
-		.map((favorite) => favorite.image) as CatImage[];
+		.filter(
+			(favorite): favorite is Favorite & { image: CatImage } => Boolean(favorite.image) && favorite.image !== undefined
+		)
+		.map((favorite) => favorite.image);
 
 	if (favoriteCats && favoriteCats.length === 0) {
 		return (

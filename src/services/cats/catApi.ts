@@ -56,10 +56,6 @@ export const fetchRandomCats = (limit: number = 10, page: number = 0): Promise<C
 	return fetchFromCatApi<CatImage[]>(`/images/search?limit=${limit}&page=${page}&has_breeds=1`);
 };
 
-export const fetchMoreRandomCats = (limit: number = 10, page: number = 0): Promise<CatImage[]> => {
-	return fetchFromCatApi<CatImage[]>(`/images/search?limit=${limit}&page=${page}&has_breeds=1`);
-};
-
 export const fetchCatBreeds = (): Promise<CatBreed[]> => {
 	return fetchFromCatApi<CatBreed[]>("/breeds");
 };

@@ -53,6 +53,7 @@ const CatGrid: React.FC<CatGridProps> = ({ cats, onCatSelect }) => {
 
 	return (
 		<div className="w-full">
+			{/*	Dynamic values that change during runtime need to stay as inline styles. */}
 			<div
 				style={{
 					height: `${rowVirtualizer.getTotalSize()}px`,
