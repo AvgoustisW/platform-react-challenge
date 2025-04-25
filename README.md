@@ -1,21 +1,27 @@
-# GlobalWebIndex Engineering Challenge
+# Intro
 
-## Exercise: CatLover
+Thank you for reviewing the challenge. I made some choices that slightly differentiated from the instructions such as:
 
-Create a React application for cat lovers which is going to build upon thecatapi.com and will have 3 views.
-The **first** view displays a list of 10 random cat images and a button to load more. Clicking on any of those images opens a modal view with the image and the information about the cat’s breed if available. This would be a link to the second view below - the breed detail. The modal should also contain a form to mark the image as your favourite (a part of the third view as well). Make sure you can copy-paste the URL of the modal and send it to your friends - they should see the same image as you can see.
+- Ability to add/remove favorites in cat cards as well as the modal.
+- Breed modal view becomes its own seperate page `/breeds/:breedId`.
+- Other small stuff + routing decisions.
 
-The **second** view displays a list of cat breeds. Each breed opens a modal again with a list of cat images of that breed. Each of those images must be a link to the image detail from the previous point.
+# Quick Explanation
 
-The **third** view allows you do the following things:
+- `components/ui` folder contains all the base components used in the project. (They are all [ShadcnUI](https://ui.shadcn.com/) components).
+- `hooks/useFavorites.tsx` contains the custom hook for managing favorites.
+- `pages` contains all the main pages. They are not the smallest & cut in many different pieces. All useEffects and handlers are in there.
+- `.env` is not .gitignored (insecure). I took this decisions so you don't have to set it up on your own, feel free to use my api key. You can choose a different user by changing `VITE_CAT_SUB_ID`
+- Cats state is managed by Tanstack Query. I was curious about the results myself.
 
-- Display your favourite cats
-- Remove an image from your favourites (use any UX option you like)
+# What can improve
 
-You can find the API documentation here: https://developers.thecatapi.com/
-We give you a lot of freedom in technologies and ways of doing things. We only insist on you using React.js. Get creative as much as you want, we WILL appreciate it. You will not be evaluated based on how well you follow these instructions, but based on how sensible your solution will be. In case you are not able to implement something you would normally implement for time reasons, make it clear with a comment.
+I opted to manage state directly with TanStack Query's optimistic updates instead of using context or libraries like Zustand with local storage peristance (also helps for initial favorite state). I wanted to see how it would work out as I have never opted to use Tanstack-Query like this. While this reduced code significantly, it complicated the user experience. Cat favorite states are stored in the query cache, which works well for normal usage but creates race conditions when rapidly toggling favorites. Since we don't store temporary favorite IDs in local state between API calls, rapid interactions can produce unexpected results. This limitation could be addressed with additional state management or fixing up the race conditioning in another way but I deprioritized it due to time constraints.
 
-## Submission
+## Technologies used
 
-Once you have built your app, share your code in the mean suits you best
-Good luck, potential colleague!
+Typescript, React-Router, Tanstack-Query, Tailwind + Tailwind-Merge + ShadcnUI Components
+
+# Outro
+
+Not production ready but I hope it's good enough for what you're looking for. Cheers!
