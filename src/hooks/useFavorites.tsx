@@ -39,9 +39,7 @@ export const useFavorites = () => {
 			// Snapshot the previous value
 			const previousFavorites = queryClient.getQueryData<Favorite[]>([CatQueryKeys.FAVORITES]) || [];
 
-			// Get the cat image data from cache if available
-			const cats = queryClient.getQueryData<CatImage[]>(["randomCats"]) || [];
-			const cat = cats.find((c) => c.id === id) || queryClient.getQueryData<CatImage>(["cat", id]);
+			const cat = queryClient.getQueryData<CatImage>([CatQueryKeys.CAT, id]);
 
 			// Create an optimistic favorite
 			const optimisticFavorite: Favorite = {

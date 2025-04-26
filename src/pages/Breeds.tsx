@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useNavigate } from "react-router-dom";
 import { Info } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/Card";
-import { fetchCatBreeds, CatBreed } from "@/services/cats/catApi";
+import { fetchCatBreeds, CatBreed, CatQueryKeys } from "@/services/cats/catApi";
 import LoaderGeneral from "@/components/LoaderGeneral";
 import ErrorGeneral from "@/components/ErrorGeneral";
 import { Badge } from "@/components/ui/Badge";
@@ -15,7 +15,7 @@ const Breeds = () => {
 		isLoading: isLoadingBreeds,
 		error: breedsError,
 	} = useQuery({
-		queryKey: ["breeds"],
+		queryKey: [CatQueryKeys.BREEDS],
 		queryFn: fetchCatBreeds,
 	});
 
